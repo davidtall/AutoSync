@@ -29,6 +29,8 @@ git clone --depth 1 https://github.com/muink/luci-app-homeproxy
 #git clone --depth 1 https://github.com/jerrykuku/luci-app-vssr
 #git clone --depth 1 https://github.com/immortalwrt/homeproxy luci-app-homeproxy
 #svn export https://github.com/immortalwrt/packages/trunk/devel/gn
+
+#add ddns-go
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go ddnsgo && mv -n ddnsgo/luci-app-ddns-go ./; rm -rf ddnsgo
 
 sed -i \
