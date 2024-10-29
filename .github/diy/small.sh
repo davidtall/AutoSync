@@ -32,7 +32,7 @@ git clone --depth 1 https://github.com/muink/luci-app-homeproxy
 
 #add ddns-go
 git clone --depth 1 https://github.com/sirpdboy/luci-app-ddns-go ddnsgo && mv -n ddnsgo/luci-app-ddns-go ./; rm -rf ddnsgo
-git clone --depth 1 https://github.com/QiuSimons/luci-app-daed daed-tmp && mv -n daed/{luci-app-daed,daed} ./; rm -rf daed-tmp
+git clone --depth 1 https://github.com/QiuSimons/luci-app-daed daed-tmp && mv -n daed-tmp/{luci-app-daed,daed} ./; rm -rf daed-tmp
 
 sed -i \
 -e 's?include \.\./\.\./\(lang\|devel\)?include $(TOPDIR)/feeds/packages/\1?' \
