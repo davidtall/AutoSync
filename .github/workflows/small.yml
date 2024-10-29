@@ -6,7 +6,7 @@ on:
       - '.github/workflows/small.yml'
       - 'small.sh'
   schedule:
-    - cron: 0 */6 * * *
+    - cron: 0 */4 * * *
   repository_dispatch:
   workflow_dispatch:
     inputs:
@@ -34,8 +34,8 @@ jobs:
 
     - name: Initialization environment
       run : |
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --global user.name "github-actions[bot]"
+        git config --global user.email "kenzok8@users.noreply.github.com"
+        git config --global user.name "actions-user"
         sudo timedatectl set-timezone "Asia/Shanghai"
         
     - name: Clone packages
@@ -48,6 +48,10 @@ jobs:
         rm -rf `find ./* -maxdepth 0 -type d ! -name "commit"` >/dev/null 2>&1
         
         $GITHUB_WORKSPACE/.github/diy/small.sh
+        patch -p1 < $GITHUB_WORKSPACE/.github/diy/homeproxy.patch
+        bash /$GITHUB_WORKSPACE/.github/diy/convert_translation.sh
+        bash /$GITHUB_WORKSPACE/.github/diy/create_acl_for_luci.sh -a
+        bash /$GITHUB_WORKSPACE/.github/diy/Modify.sh
 
     - name: Upload
       env: 
