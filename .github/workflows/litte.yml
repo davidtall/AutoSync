@@ -7,7 +7,7 @@ on:
       - 'commit/**'
   #schedule:
   #  - cron: 0 */4 * * *
-  repository_dispatch:
+  #repository_dispatch:
   workflow_dispatch:
     inputs:
       packages:
